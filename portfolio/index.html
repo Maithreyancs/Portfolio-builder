@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber-violet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortfoliX - Developer & Designer Portfolio</title>
+  <meta name="description" content="High-impact interactive developer portfolio with themes, projects, and instant PDF download.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/portfolio-themes.css">
+
+  <style>
+    /* 100% Full-Screen Portfolio Layout */
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background-color: var(--pf-bg-base, #09090f);
+      color: var(--pf-text-main, #f8fafc);
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    #portfolio-root {
+      width: 100%;
+      min-height: 100vh;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-Screen Portfolio Container -->
+  <div id="portfolio-root"></div>
+
+  <!-- Scripts -->
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script src="js/data-store.js"></script>
+  <script src="js/template-engine.js"></script>
+  <script src="js/exporter.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

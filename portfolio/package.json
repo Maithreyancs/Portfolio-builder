@@ -1,0 +1,20 @@
+{
+  "name": "portfolix-studio",
+  "version": "1.0.0",
+  "description": "PortfoliX - Next-Gen Interactive Portfolio Builder Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "npx -y serve ."
+  },
+  "keywords": [
+    "portfolio-builder",
+    "portfolio-generator",
+    "resume-builder",
+    "interactive-portfolio",
+    "developer-portfolio"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

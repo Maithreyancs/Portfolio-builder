@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortfoliX Studio — Creator Studio</title>
+  <meta name="description" content="Build, customize, and export stunning interactive developer portfolios.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/portfolio-themes.css">
+</head>
+<body style="overflow: hidden; height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Studio Header -->
+  <header class="studio-header">
+    <div class="studio-brand">
+      <div class="brand-icon">✨</div>
+      <div>
+        <h1 class="brand-title">PortfoliX Studio</h1>
+      </div>
+      <span class="brand-badge">Full Page Creator</span>
+    </div>
+
+    <!-- Viewport Switcher -->
+    <div class="device-toolbar">
+      <button class="device-btn active" data-device="desktop" title="Desktop View (100%)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>Desktop</span>
+      </button>
+      <button class="device-btn" data-device="tablet" title="Tablet View (768px)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        <span>Tablet</span>
+      </button>
+      <button class="device-btn" data-device="mobile" title="Mobile View (390px)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        <span>Mobile</span>
+      </button>
+    </div>
+
+    <!-- Actions Toolbar -->
+    <div class="studio-actions">
+      <button class="action-btn" id="btn-load-demo" title="Load sample portfolio">
+        <span>⚡ Demo Data</span>
+      </button>
+      <button class="action-btn" id="btn-reset" title="Clear form fields">
+        <span>🔄 Clear</span>
+      </button>
+      <button class="action-btn" id="btn-download-json" title="Save JSON backup">
+        <span>💾 Backup</span>
+      </button>
+      <button class="action-btn" id="btn-import-json" title="Load JSON backup">
+        <span>📁 Import</span>
+      </button>
+      <input type="file" id="json-file-input" accept=".json" style="display: none;">
+      
+      <button class="action-btn" id="btn-download-html" title="Export single standalone HTML">
+        <span>🌐 Export HTML</span>
+      </button>
+      <button class="action-btn" id="btn-download-pdf" title="Download PDF snapshot">
+        <span>📄 PDF</span>
+      </button>
+
+      <!-- View Live Portfolio Return Link -->
+      <a href="index.html" class="action-btn action-btn-primary" style="text-decoration: none;" title="View Live Full-Screen Portfolio">
+        <span>🚀 View Live Portfolio ↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Studio Workspace -->
+  <main class="studio-workspace">
+    <!-- Left Editor Panel -->
+    <aside class="studio-editor">
+      <!-- Section Tabs -->
+      <nav class="editor-nav">
+        <button class="tab-btn active" data-tab="profile">👤 Profile</button>
+        <button class="tab-btn" data-tab="socials">🌐 Contact & Links</button>
+        <button class="tab-btn" data-tab="skills">⚡ Skills</button>
+        <button class="tab-btn" data-tab="projects">🚀 Projects</button>
+        <button class="tab-btn" data-tab="experience">💼 Experience</button>
+        <button class="tab-btn" data-tab="testimonials">💬 Quotes</button>
+        <button class="tab-btn" data-tab="theme">🎨 Themes</button>
+      </nav>
+
+      <!-- Panels -->
+      <div class="editor-panels">
+        
+        <!-- Panel 1: Profile -->
+        <section class="panel-content active" id="panel-profile">
+          <h2 class="form-section-title">Personal Profile</h2>
+          <p class="form-section-subtitle">Basic details that power your hero banner, about story, and stats.</p>
+
+          <div class="form-field">
+            <label>Full Name *</label>
+            <input type="text" id="input-name" placeholder="e.g. Karthik Subramanian" required>
+          </div>
+
+          <div class="form-field">
+            <label>Professional Title / Headline *</label>
+            <input type="text" id="input-title" placeholder="e.g. Senior Full-Stack & Cloud Engineer">
+          </div>
+
+          <div class="form-field">
+            <label>Status / Availability Badge</label>
+            <input type="text" id="input-status" placeholder="e.g. Available for high-impact roles & consulting">
+          </div>
+
+          <div class="form-field">
+            <label>Avatar / Profile Image URL</label>
+            <input type="url" id="input-avatar" placeholder="https://example.com/avatar.jpg">
+          </div>
+
+          <div class="form-field">
+            <label>Location</label>
+            <input type="text" id="input-location" placeholder="e.g. Chennai, India (Open to Remote Worldwide)">
+          </div>
+
+          <div class="form-row">
+            <div class="form-col form-field">
+              <label>Years of Exp</label>
+              <input type="text" id="input-years-exp" placeholder="e.g. 6+">
+            </div>
+            <div class="form-col form-field">
+              <label>Projects Shipped</label>
+              <input type="text" id="input-projects-done" placeholder="e.g. 45+">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col form-field">
+              <label>Client Rating</label>
+              <input type="text" id="input-clients" placeholder="e.g. 99%">
+            </div>
+            <div class="form-col form-field">
+              <label>Contributions</label>
+              <input type="text" id="input-commits" placeholder="e.g. 1.5k+">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Hero Summary</label>
+            <textarea id="input-hero-summary" placeholder="Short punchy 2-sentence intro displayed in hero section"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label>About Me Story</label>
+            <textarea id="input-about-story" rows="4" placeholder="Detailed story of your journey, philosophy, and passions"></textarea>
+          </div>
+        </section>
+
+        <!-- Panel 2: Socials & Contact -->
+        <section class="panel-content" id="panel-socials">
+          <h2 class="form-section-title">Contact & Social Links</h2>
+          <p class="form-section-subtitle">Connect your professional profiles, email, and social presences.</p>
+
+          <div class="form-field">
+            <label>Email Address *</label>
+            <input type="email" id="input-email" placeholder="youremail@example.com">
+          </div>
+
+          <div class="form-field">
+            <label>LinkedIn Profile URL *</label>
+            <input type="url" id="input-linkedin" placeholder="https://linkedin.com/in/yourname">
+          </div>
+
+          <div class="form-field">
+            <label>GitHub Profile URL</label>
+            <input type="url" id="input-github" placeholder="https://github.com/yourusername">
+          </div>
+
+          <div class="form-field">
+            <label>X / Twitter URL</label>
+            <input type="url" id="input-twitter" placeholder="https://x.com/yourhandle">
+          </div>
+
+          <div class="form-field">
+            <label>Personal Website or Blog</label>
+            <input type="url" id="input-website" placeholder="https://yourdomain.com">
+          </div>
+
+          <div class="form-field">
+            <label>Resume / CV Link</label>
+            <input type="text" id="input-resume" placeholder="Link to PDF (Google Drive, Dropbox, or #)">
+          </div>
+
+          <div class="form-field">
+            <label>Phone Number (Optional)</label>
+            <input type="text" id="input-phone" placeholder="+91 98765 43210">
+          </div>
+        </section>
+
+        <!-- Panel 3: Skills -->
+        <section class="panel-content" id="panel-skills">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h2 class="form-section-title" style="margin-bottom: 0;">Skills & Technologies</h2>
+            <button class="action-btn" id="btn-add-skill-cat" style="font-size: 0.78rem;">+ New Category</button>
+          </div>
+          <p class="form-section-subtitle">Group your stack into logical categories (Frontend, Cloud, Languages, etc.).</p>
+
+          <div id="skills-editor-list"></div>
+        </section>
+
+        <!-- Panel 4: Projects -->
+        <section class="panel-content" id="panel-projects">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h2 class="form-section-title" style="margin-bottom: 0;">Featured Projects</h2>
+            <button class="action-btn action-btn-accent" id="btn-add-project" style="font-size: 0.8rem;">+ Add Project</button>
+          </div>
+          <p class="form-section-subtitle">Add your standout projects with live demos, code repos, and tech tags.</p>
+
+          <div id="projects-editor-list"></div>
+        </section>
+
+        <!-- Panel 5: Experience -->
+        <section class="panel-content" id="panel-experience">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h2 class="form-section-title" style="margin-bottom: 0;">Work History</h2>
+            <button class="action-btn" id="btn-add-experience" style="font-size: 0.8rem;">+ Add Experience</button>
+          </div>
+          <p class="form-section-subtitle">Chronological timeline of your roles, accomplishments, and companies.</p>
+
+          <div id="experience-editor-list"></div>
+        </section>
+
+        <!-- Panel 6: Testimonials -->
+        <section class="panel-content" id="panel-testimonials">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h2 class="form-section-title" style="margin-bottom: 0;">Testimonials</h2>
+            <button class="action-btn" id="btn-add-testimonial" style="font-size: 0.8rem;">+ Add Quote</button>
+          </div>
+          <p class="form-section-subtitle">Recommendations from peers, engineering leaders, and clients.</p>
+
+          <div id="testimonials-editor-list"></div>
+        </section>
+
+        <!-- Panel 7: Theme & Styling -->
+        <section class="panel-content" id="panel-theme">
+          <h2 class="form-section-title">Theme & Aesthetics</h2>
+          <p class="form-section-subtitle">Choose a visual preset crafted for maximum impact and recruiter impression.</p>
+
+          <div class="theme-selector-grid" id="theme-options-grid"></div>
+
+          <div class="form-field">
+            <label>Primary Call-to-Action Button Label</label>
+            <input type="text" id="input-cta-text" placeholder="e.g. Get in Touch">
+          </div>
+        </section>
+
+      </div>
+    </aside>
+
+    <!-- Right Live Viewport -->
+    <section class="studio-viewport">
+      <div class="viewport-frame-wrapper mode-desktop" id="viewport-wrapper">
+        <iframe id="preview-frame" title="Live Portfolio Preview"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Add/Edit Modal -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="project-modal-title">Add / Edit Project</h2>
+        <button class="modal-close-btn" onclick="window.closeProjectModal()">✕</button>
+      </div>
+
+      <form id="project-form" onsubmit="window.saveProjectModal(event)">
+        <div class="form-field">
+          <label>Project Title *</label>
+          <input type="text" id="proj-title" placeholder="e.g. NexusCloud Telemetry" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col form-field">
+            <label>Category</label>
+            <input type="text" id="proj-category" placeholder="e.g. Cloud & DevOps">
+          </div>
+          <div class="form-col form-field">
+            <label>Featured Project?</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem; height: 38px;">
+              <input type="checkbox" id="proj-featured" style="width: 18px; height: 18px;">
+              <span style="font-size: 0.85rem; color: #fff;">Show ★ Featured badge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Short Tagline</label>
+          <input type="text" id="proj-tagline" placeholder="e.g. Real-time distributed metrics aggregator">
+        </div>
+
+        <div class="form-field">
+          <label>Detailed Description</label>
+          <textarea id="proj-desc" rows="3" placeholder="Key architecture decisions, problem solved, and metrics achieved..."></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Tech Stack Tags (Comma separated)</label>
+          <input type="text" id="proj-tags" placeholder="Go, React, Kafka, Docker, TimescaleDB">
+        </div>
+
+        <div class="form-row">
+          <div class="form-col form-field">
+            <label>Live Demo URL</label>
+            <input type="url" id="proj-demo" placeholder="https://example.com/demo">
+          </div>
+          <div class="form-col form-field">
+            <label>GitHub Source URL</label>
+            <input type="url" id="proj-github" placeholder="https://github.com/username/project">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Project Mockup / Thumbnail Image URL</label>
+          <input type="url" id="proj-image" placeholder="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="action-btn" onclick="window.closeProjectModal()">Cancel</button>
+          <button type="submit" class="action-btn action-btn-primary">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data-store.js"></script>
+  <script src="js/template-engine.js"></script>
+  <script src="js/exporter.js"></script>
+  <script src="js/builder.js"></script>
+</body>
+</html>
